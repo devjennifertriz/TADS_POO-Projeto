@@ -67,3 +67,20 @@ class Usuarios:
             x.email = obj.email
             x.fone = obj.fone
             cls.Salvar()
+
+class Encomenda:
+    def __init__(self, id, enderecoEntrega, status, valorTotal,qtdProduto, idProduto, idUsuario):
+        self.id = id
+        self.enderecoEntrega = enderecoEntrega
+        self.status = status
+        self.valorTotal = valorTotal
+        self.qtdProduto = qtdProduto
+        self.idProduto = idProduto
+        self.idUsuario = idUsuario
+    def __str__(self):
+        return f'Id - {self.id} Endereço - {self.enderecoEntrega}  Status - {self.status} Valor Total - {self.valorTotal} Quantidade Produto - {self.qtdProduto} Id Produto - {self.idProduto} Id Usuário - {self.idUsuario}'
+
+class Encomendas:
+    @staticmethod
+    def Inserir_Encomenda(cls, obj):
+        super().Abrir(cls)
