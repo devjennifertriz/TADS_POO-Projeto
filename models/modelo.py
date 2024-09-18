@@ -32,4 +32,17 @@ class Modelo(ABC):
     def Listar_id(cls, obj):
         cls.Abrir()
 
-    
+    @staticmethod
+    def Excluir(cls, obj):
+        x = cls.Listar_id(obj.id)
+        if x != None:
+            cls.objetos.remove(x)
+            cls.Salvar()
+
+    @staticmethod
+    def Atualizar(cls, obj):
+        x = cls.Listar_id(obj.id)
+        if x != None:
+            cls.objetos.remove(x)
+            cls.append(obj)
+            cls.Salvar()
