@@ -49,6 +49,9 @@ class View:
     def Produto_Listar():
         return Produtos.Listar()
     @staticmethod
+    def Produto_ListarId(id):
+        return Produtos.Listar_id(id)
+    @staticmethod
     def Produto_Atualizar(id, nome, valor, categoria):
         Atualizando = Produto(id, nome, valor, categoria)
         Produtos.Atualizar(Atualizando)
@@ -56,4 +59,23 @@ class View:
     def Produto_Excluir(id):
         Excluindo = Produto(id, "", "", "")
         Produtos.Excluir(Excluindo)
-    
+    def Categoria_Inserir(nome, descricao):
+        Inserindo = Categoria(0, nome, descricao)
+        Categorias.Inserir(Inserindo)
+    @staticmethod
+    def Categoria_Listar():
+        return Categorias.Listar()
+    @staticmethod
+    def Categoria_ListaId(id):
+        return Categorias.Listar_id(id)
+    @staticmethod
+    def Categoria_ListarId(id):
+        return Categorias.Listar_id(id)
+    @staticmethod
+    def Categoria_Atualizar(id, nome, descricao):
+        Atualizando = Produto(id, nome, descricao)
+        Categorias.Atualizar(Atualizando)
+    @staticmethod
+    def Categoria_Excluir(id):
+        Excluindo = Categoria(id, "", "")
+        Categoria.Excluir(Excluindo)
