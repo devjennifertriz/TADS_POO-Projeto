@@ -14,21 +14,19 @@ class Usuario:
     
 class Usuarios(Modelo):
     
-    objetos = []
-    
     @classmethod
     def Abrir(cls, obj):
-        cls.obj_usuarios = []
+        cls.objetos = []
         with open("usuarios.json", mode='r') as arquivo:
             usuarios_json = json.load(arquivo)
             for obj in usuarios_json:
                 u = Usuario(obj["id"], obj["nome"], obj["email"], obj["fone"], obj["senha"])
-            cls.obj_usuarios.append(u)
+            cls.objetos.append(u)
 
     @classmethod
     def Salvar(cls):
         with open("usuario.json", mode='w') as arquivo:
-            json.dump(cls.obj_usuarios, arquivo, default=vars)
+            json.dump(cls.objetos, arquivo, default=vars)
 
     @classmethod
     def Inserir(cls, obj):
@@ -49,4 +47,3 @@ class Usuarios(Modelo):
     @classmethod
     def Atualizar(cls, obj):
        super().Atualizar()
-
