@@ -2,14 +2,13 @@ import json
 from models.modelo import Modelo
 
 class Produto:
-    def __init__(self, id: int, nome: str, valor: float, categoria: str, qtdEstoque: int):
+    def __init__(self, id: int, nome: str, valor: float, categoria: str):
         self.__id = id
         self.__nome = nome
         self.__valor = valor
         self.__categoria = categoria
-        self.__qtdEstoque = qtdEstoque
     def __str__(self):
-        return f'ID - {self.__id} Nome - {self.__nome} Valor - {self.__valor} Categoria - {self.__categoria} Estoque - {self.__qtdEstoque}'
+        return f'ID - {self.__id} Nome - {self.__nome} Valor - {self.__valor} Categoria - {self.__categoria}'
 
 class Produtos(Modelo):
 
@@ -19,7 +18,7 @@ class Produtos(Modelo):
         with open("produtos.json", mode='r') as arquivo:
             produtos_json = json.load(arquivo)
             for obj in produtos_json:
-                pr = Produto(obj['"Id'], obj['"nome'], obj['"valor'], obj['"categoria'], obj['"qtdEstoque'])
+                pr = Produto(obj['"Id'], obj['"nome'], obj['"valor'], obj['"categoria'])
         cls.objetos.append(pr)
 
     @staticmethod
