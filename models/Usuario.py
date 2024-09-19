@@ -2,15 +2,33 @@ import json
 from models.modelo import Modelo
 class Usuario:
     def __init__(self, id: int, nome: str, email: str, fone: str, senha: str):
-        self.id = id
-        self.nome = nome
-        self.email = email
-        self.fone = fone
-        self.senha = senha
-    def Usuario(self, id, nome, email, fone, senha):
-        return Usuario
+        self.__id = id
+        self.__nome = nome
+        self.__email = email
+        self.__fone = fone
+        self.__senha = senha
+    def set_id(self, id):
+        if id < 0: raise ValueError()
+    def set_nome(self, nome):
+        if nome == "": raise ValueError()
+    def set_email(self, email):
+        if email == "": raise ValueError()
+    def set_fone(self, fone):
+        if fone == "": raise ValueError()
+    def set_senha(self, senha):
+        if senha == "": raise ValueError()
+    def get_id(self):
+        return self.__id
+    def get_nome(self):
+        return self.__nome
+    def get_email(self):
+        return self.__email
+    def get_fone(self):
+        return self.__fone
+    def get_senha(self):
+        return self.__senha
     def ToString(self):
-        return f'ID - {self.id} Nome - {self.nome} E-mail - {self.email} Fone - {self.fone} Senha - {self.senha}'
+        return f'ID - {self.__id} Nome - {self.__nome} E-mail - {self.__email} Fone - {self.__fone} Senha - {self.__senha}'
     
 class Usuarios(Modelo):
     
