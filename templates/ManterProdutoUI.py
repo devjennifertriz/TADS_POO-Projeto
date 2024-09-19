@@ -29,7 +29,7 @@ class ManterProdutoUI:
     def InserirProduto():
         nome = st.text_input("Insira o nome do produto: ")
         valor = st.number_input("Insira o valor do produto: ")
-        idCategoria = st.number_input("Insira a categoria: ")
+        idCategoria = st.text_input("Insira a categoria: ")
         if st.button("Inserir"):
             try:
                 View.Produto_Inserir(nome, valor, idCategoria)
