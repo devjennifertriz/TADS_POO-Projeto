@@ -13,6 +13,7 @@ class Produto:
     
     def set_id(self, id):
         if id < 0: raise ValueError()
+        else: self.__id = id
     def set_nome(self, nome):
         if nome == "": raise ValueError()
     def set_categoria(self, idCategoria):
