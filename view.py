@@ -26,19 +26,20 @@ class View:
         pass
     def Usuario_Login(email, senha):
         return True
+    
     @staticmethod
     def Encomenda_Inserir(enderecoEntrega, status, valorTotal, qtdProduto, idProduto, idUsuario):
         Inserindo = Encomenda(0, enderecoEntrega, status, valorTotal, qtdProduto, idProduto, idUsuario)
         Encomendas.Inserir(Inserindo)
     @staticmethod
-    def Pedido_Listar():
+    def Encomenda_Listar():
         return Encomendas.Listar()
     @staticmethod
-    def Pedido_Atualizar(id, enderecoEntrega, status, valorTotal, qtdProduto, idProduto, idUsuario):
+    def Encomenda_Atualizar(id, enderecoEntrega, status, valorTotal, qtdProduto, idProduto, idUsuario):
         Atualizando = Encomenda(id, enderecoEntrega, status, valorTotal, qtdProduto, idProduto, idUsuario)
         Encomendas.Atualizar(Atualizando)
     @staticmethod
-    def Pedido_Excluir(id):
+    def Encomenda_Excluir(id):
         Excluindo = Encomenda(id, "", "", "", "", "", "")
         Encomendas.Excluir(Excluindo)
     @staticmethod

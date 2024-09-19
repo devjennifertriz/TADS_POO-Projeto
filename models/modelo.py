@@ -26,7 +26,7 @@ class Modelo(ABC):
     @staticmethod
     def Listar(cls):
         cls.Abrir()
-        return cls.objetos
+        super.cls.objetos
     
     @staticmethod
     def Listar_id(cls, obj):

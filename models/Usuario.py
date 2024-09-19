@@ -48,20 +48,20 @@ class Usuarios(Modelo):
 
     @classmethod
     def Inserir(cls, obj):
-       super().Inserir()
+        return super().Inserir()
 
     @classmethod
     def Listar(cls):
-        super().Listar()
+        return super().Listar()
     
     @classmethod
     def Listar_id(cls, id):
-       super().Listar_id()
+        return super().Listar_id()
 
     @classmethod
     def Excluir(cls, obj):
-        super().Excluir()
+        return super().Excluir()
 
     @classmethod
     def Atualizar(cls, obj):
-       super().Atualizar()
+        return super().Atualizar()
