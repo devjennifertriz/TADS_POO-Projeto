@@ -11,14 +11,15 @@ class FazerEncomendaUI:
         #atributos encomenda
 
         #id = st.number_input("Id da encomenda", min_value=0)
-        
-        usuario = View.()
+        st.text("Nossos produtos:")
+
+        usuario = View.Item_Listar()
         user = st.selectbox("", usuario)
         endereco = st.text_input("Endereço de Entrega")
         status = "Pendente"
         valorT = st.number_input("Valor total", min_value=0.0)
         #idusuario = st.number_input("Id do usuário", min_value=0)
-        idusuario = user.get_id()
+        idusuario = user
 
         #item = View.Item_Listar()
         #op = st.selectbox("", item)
