@@ -3,6 +3,7 @@ from templates.AbrirContaUI import AbrirContaUI
 from templates.ManterUsuarioUI import ManterUsuarioUI
 from templates.ManterCategoriaUI import ManterCategoriaUI
 from templates.ManterProdutoUI import ManterProdutoUI
+from templates.FazerEncomendaUI import FazerEncomendaUI
 from view import View
 import streamlit as st
 
@@ -23,7 +24,7 @@ class IndexUI:
 
     def MenuUsuario():
         select = st.sidebar.selectbox("Minhas Encomendas", ["Fazer Encomenda", "Visualizar Encomenda"])
-        #if select == "Fazer Encomenda": FazerEncomendaUI.Main()
+        if select == "Fazer Encomenda": FazerEncomendaUI.Main()
         #if select == "Visualizar Encomenda": ManterEncomendaUI.Main()
 
     def Sidebar():
