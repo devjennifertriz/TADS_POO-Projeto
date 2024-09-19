@@ -33,36 +33,19 @@ class Encomenda:
 
 class Encomendas(Modelo):
 
-    @staticmethod
-    def Abrir(cls, obj):
-        cls.objetos = []
-        with open("encomenda.json", mode='r') as arquivo:
-            encomenda_json = json.load(arquivo)
-            for obj in encomenda_json:
-                en = Encomenda(obj['"Id'], obj['"endereçoEntrega'], obj['"status'], obj['"valorTotal'], obj['"qtdProduto'], obj['"idProduto'], obj['"idUsuario'])
-        cls.objetos.append(en)
+    @classmethod
+    def Salvar(cls):    
+        with open("../encomenda.json", mode="w") as arquivo:
+            json.dump(cls.objetos, arquivo, default = vars)
 
-    @staticmethod
-    def Salvar(cls):
-        with open("encomenda.json", mode='w') as arquivo:
-            json.dump(cls.objetos, arquivo, default=vars)
-        
-    @staticmethod
-    def Inserir(cls, obj):
-        return super().Inserir(cls, obj)
-    
-    @staticmethod
-    def Listar(cls):
-        return super().Listar(cls)
-    
-    @staticmethod
-    def Listar_id(cls, obj):
-        return super().Listar_id(cls, obj)
-    
-    @staticmethod
-    def Excluir(cls, obj):
-        return super().Excluir(cls, obj)
-    
-    @staticmethod
-    def Atualizar(cls, obj):
-        return super().Atualizar(cls, obj)
+    @classmethod
+    def Abrir(cls):
+        cls.objetos = []
+        try:
+          with open("../encomenda.json", mode="r") as arquivo:
+              arquivo_encomenda = json.load(arquivo)
+              for obj in arquivo_encomenda:
+                  e = Encomenda(obj["id"], obj["nome"], obj["email"], obj["fone"])
+                  cls.objetos.append(e)
+        except FileNotFoundError:
+          pass    

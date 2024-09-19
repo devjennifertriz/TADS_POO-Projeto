@@ -34,36 +34,19 @@ class Item:
 
 class Itens(Modelo):
 
-    @staticmethod
-    def Abrir(cls, obj):
+    @classmethod
+    def Salvar(cls):    
+        with open("../itens.json", mode="w") as arquivo:
+            json.dump(cls.objetos, arquivo, default = vars)
+
+    @classmethod
+    def Abrir(cls):
         cls.objetos = []
-        with open("item.json", mode= 'r') as arquivo:
-            item_json = json.load(arquivo)
-            for obj in item_json:
-                i = Item(obj["id"], obj["qtd"], obj["valor"], obj["id_encomenda"], obj["id_produto"])
-            cls.objetos.append(i)
-    
-    @staticmethod
-    def Salvar(cls):
-        return super().Salvar(cls)
-    
-    @staticmethod
-    def Inserir(cls, obj):
-        return super().Inserir(cls, obj)
-    
-    @staticmethod
-    def Listar(cls):
-        return super().Listar(cls)
-    
-    @staticmethod
-    def Listar_id(cls, obj):
-        return super().Listar_id(cls, obj)
-    
-    @staticmethod
-    def Excluir(cls, obj):
-        return super().Excluir(cls, obj)
-    
-    @staticmethod
-    def Atualizar(cls, obj):
-        return super().Atualizar(cls, obj)
-    
+        try:
+          with open("../itens.json", mode="r") as arquivo:
+              arquivo_itens = json.load(arquivo)
+              for obj in arquivo_itens:
+                  i = Itens(obj["id"], obj["nome"], obj["email"], obj["fone"])
+                  cls.objetos.append(i)
+        except FileNotFoundError:
+          pass    

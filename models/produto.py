@@ -26,36 +26,19 @@ class Produto:
     
 class Produtos(Modelo):
 
-    @staticmethod
-    def Abrir(cls, obj):
+    @classmethod
+    def Salvar(cls):    
+        with open("../produtos.json", mode="w") as arquivo:
+            json.dump(cls.objetos, arquivo, default = vars)
+
+    @classmethod
+    def Abrir(cls):
         cls.objetos = []
-        with open("produtos.json", mode='r') as arquivo:
-            produtos_json = json.load(arquivo)
-            for obj in produtos_json:
-                pr = Produto(obj['"Id'], obj['"nome'], obj['"valor'], obj['"categoria'])
-        cls.objetos.append(pr)
-
-    @staticmethod
-    def Salvar(cls):
-        with open("produtos.json", mode='w') as arquivo:
-            json.dump(cls.objetos, arquivo, default=vars)
-        
-    @staticmethod
-    def Inserir(cls, obj):
-        return super().Inserir(cls, obj)
-
-    @staticmethod
-    def Listar(cls):
-        return super().Listar(cls)
-
-    @staticmethod
-    def Listar_id(cls):
-        return super().Listar_id(cls, id)
-
-    @staticmethod
-    def Excluir(cls, obj):
-        return super().Excluir(cls, obj)
-
-    @staticmethod
-    def Atualizar(cls, obj):
-        return super().Atualizar(cls, obj)
+        try:
+          with open("../produtos.json", mode="r") as arquivo:
+              arquivo_produtos = json.load(arquivo)
+              for obj in arquivo_produtos:
+                  p = Produto(obj["id"], obj["nome"], obj["valor"], obj["idCategoria"])
+                  cls.objetos.append(p)
+        except FileNotFoundError:
+          pass             

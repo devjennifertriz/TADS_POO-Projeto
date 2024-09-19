@@ -1,4 +1,5 @@
 from templates.ManterUsuarioUI import ManterUsuarioUI
+from templates.ManterCategoriaUI import ManterCategoriaUI
 from view import View
 import streamlit as st
 
@@ -8,6 +9,8 @@ class IndexUI:
     def MenuAdmin():
         select = st.sidebar.selectbox("Menu", ["Manter Usuário"])
         if select == "Manter Usuário": ManterUsuarioUI.Main()
+        if select == "Manter Produto": ManterCategoriaUI.Main()
+
 
     def Sidebar():
         IndexUI.MenuAdmin()

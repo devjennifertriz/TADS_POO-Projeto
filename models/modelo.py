@@ -1,18 +1,19 @@
-import json
 from abc import ABC, abstractmethod
 
 class Modelo(ABC):
     objetos = []
 
-    @staticmethod
-    def Abrir(cls, obj):
+    @classmethod
+    @abstractmethod
+    def Abrir(cls):
         pass
 
-    @staticmethod
+    @classmethod
+    @abstractmethod
     def Salvar(cls):
         pass
 
-    @staticmethod
+    @classmethod
     def Inserir(cls, obj):
         cls.Abrir()
         id = 0
@@ -23,23 +24,26 @@ class Modelo(ABC):
         cls.objetos.append(obj)
         cls.Salvar()
 
-    @staticmethod
+    @classmethod
     def Listar(cls):
         cls.Abrir()
-        super.cls.objetos
+        return cls.objetos
     
-    @staticmethod
+    @classmethod
     def Listar_id(cls, obj):
         cls.Abrir()
+        for x in cls.objetos:
+            if x.id == id: return x
+        return None 
 
-    @staticmethod
+    @classmethod
     def Excluir(cls, obj):
         x = cls.Listar_id(obj.id)
         if x != None:
             cls.objetos.remove(x)
             cls.Salvar()
 
-    @staticmethod
+    @classmethod
     def Atualizar(cls, obj):
         x = cls.Listar_id(obj.id)
         if x != None:
