@@ -3,28 +3,27 @@ from view import View
 
 class FazerEncomendaUI:
     def Main(): 
-        st.header("Faça sua encomenda")
+        st.subheader("Faça sua encomenda")
         FazerEncomendaUI.FazerPedido()
 
     def FazerPedido():
         
         #atributos encomenda
 
-        st.header("Adicionar Encomenda")
-        id = st.number_input("Id da encomenda", min_value=0)
+        st.subheaderheader("Adicionar Encomenda")
+        #id = st.number_input("Id da encomenda", min_value=0)
         endereco = st.text_input("Endereço de Entrega")
         status = "Pendente"
         valorT = st.number_input("Valor total", min_value=0.0)
         idusuario = st.number_input("Id do usuário", min_value=0)
         
-        item = View.Item_Listar()
-        op = st.selectbox("", item)
+        #item = View.Item_Listar()
+        #op = st.selectbox("", item)
         #atributos item
-        idi = st.number_input("Id do Item", min_value=0)
+        #idi = st.number_input("Id do Item", min_value=0)
         quantidade = st.text_input("Quantidade")
         valor = st.number_input("Valor do produto")
         idencomenda = 0
-        teste = op.get_valor()
         idproduto = st.number_input("Produto", min_value=0)
         
         if st.button("Pedir"):
@@ -36,5 +35,5 @@ class FazerEncomendaUI:
             print("O número do seu pedido é:")
 
             
-            item = View.Item_Listar()
-            op = st.selectbox("", item)
+            #item = View.Item_Listar()
+            #op = st.selectbox("", item)
