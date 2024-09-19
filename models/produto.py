@@ -2,19 +2,19 @@ import json
 from models.modelo import Modelo
 
 class Produto:
-    def __init__(self, id: int, nome: str, valor: float, categoria: str):
+    def __init__(self, id: int, nome: str, valor: float, idCategoria: str):
         self.__id = id
         self.__nome = nome
         self.__valor = valor
-        self.__categoria = categoria
+        self.__idCategoria = idCategoria
     def __str__(self):
-        return f'ID - {self.__id} Nome - {self.__nome} Valor - {self.__valor} Categoria - {self.__categoria}'
+        return f'ID - {self.__id} Nome - {self.__nome} Valor - {self.__valor} Categoria - {self.__idCategoria}'
     def set_id(self, id):
         if id < 0: raise ValueError()
     def set_nome(self, nome):
         if nome == "": raise ValueError()
-    def set_categoria(self, categoria):
-        if categoria == "": raise ValueError()
+    def set_categoria(self, idCategoria):
+        if idCategoria == "": raise ValueError()
     def get_id(self):
         return self.__id
     def get_nome(self):
@@ -22,7 +22,7 @@ class Produto:
     def get_valor(self):
         return self.__valor
     def get_categoria(self):
-        return self.__categoria
+        return self.__idCategoria
     
 class Produtos(Modelo):
 
