@@ -9,7 +9,21 @@ class Produto:
         self.__categoria = categoria
     def __str__(self):
         return f'ID - {self.__id} Nome - {self.__nome} Valor - {self.__valor} Categoria - {self.__categoria}'
-
+    def set_id(self, id):
+        if id < 0: raise ValueError()
+    def set_nome(self, nome):
+        if nome == "": raise ValueError()
+    def set_categoria(self, categoria):
+        if categoria == "": raise ValueError()
+    def get_id(self):
+        return self.__id
+    def get_nome(self):
+        return self.__nome
+    def get_valor(self):
+        return self.__valor
+    def get_categoria(self):
+        return self.__categoria
+    
 class Produtos(Modelo):
 
     @staticmethod
