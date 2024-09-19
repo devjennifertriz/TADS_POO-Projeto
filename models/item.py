@@ -46,7 +46,7 @@ class Itens(Modelo):
           with open("../itens.json", mode="r") as arquivo:
               arquivo_itens = json.load(arquivo)
               for obj in arquivo_itens:
-                  i = Itens(obj["id"], obj["nome"], obj["email"], obj["fone"])
+                  i = Itens(obj["id"], obj["qtd"], obj["valor"], obj["id_encomenda"], obj["id_produto"])
                   cls.objetos.append(i)
         except FileNotFoundError:
           pass    
