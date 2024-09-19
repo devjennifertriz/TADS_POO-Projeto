@@ -47,7 +47,7 @@ class ManterProdutoUI:
             select = st.selectbox("Atualizar Cadastro", produto)
             nome = st.text_input("Insira a nova categoria: ", select.get_nome())
             valor = st.number_input("Insira um novo valor para o produto: ", select.get_valor())
-            idCategoria = st.number_input("Insira a categoria: ")
+            idCategoria = st.text_input("Insira a categoria: ")
             if st.button("Atualizar"):
                 id = select.get_id()
                 View.Produto_Atualizar(id, nome, valor, idCategoria)
