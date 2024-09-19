@@ -39,11 +39,6 @@ class Usuario:
     def __str__(self):
         return f'ID: {self.__id} | Nome: {self.__nome} | E-mail: {self.__email} | Fone: {self.__fone} | Senha: {self.__senha}'
 
-    def __eq__(self, x):
-        if self.__id == x.__id and self.__nome == x.__nome and self.__email == x.__email and self.__fone == x.__fone and self.__senha == x.__senha:
-            return True
-        return False
-
 class Usuarios(Modelo):
 
     @classmethod

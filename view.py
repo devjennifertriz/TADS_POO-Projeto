@@ -19,14 +19,20 @@ class View:
         Usuarios.Atualizar(Atualizando)
     @staticmethod
     def Usuario_Excluir(id):
-        Excluindo = Usuario(id, "semnome", "sememail", "")
+        Excluindo = Usuario(id)
         Usuarios.Excluir(Excluindo)
     @staticmethod
     def Usuario_Admin():
-        pass
+        for user in View.Usuario_Listar():
+            if user.get_nome() == "admin": return
+        View.Usuario_Inserir("admin", "admin", "0000", "admin") 
+    @staticmethod
     def Usuario_Login(email, senha):
-        return True
-    
+        for user in View.Usuario_Listar():
+            if user.get_email() == email and user.get_senha() == senha:
+                return user
+        return None
+
     @staticmethod
     def Encomenda_Inserir(enderecoEntrega, status, valorTotal, qtdProduto, idProduto, idUsuario):
         Inserindo = Encomenda(0, enderecoEntrega, status, valorTotal, qtdProduto, idProduto, idUsuario)

@@ -29,10 +29,9 @@ class ManterProdutoUI:
     def InserirProduto():
         nome = st.text_input("Insira o nome do produto: ")
         valor = st.number_input("Insira o valor do produto: ")
-        idCategoria = st.number_input("Insira o ID da categoria deste produto: ")
         if st.button("Inserir"):
             try:
-                View.Produto_Inserir(nome, valor, idCategoria)
+                View.Produto_Inserir(nome, valor)
                 st.success("Produto cadastrado com sucesso!")
                 time.sleep(1)
                 st.rerun()
