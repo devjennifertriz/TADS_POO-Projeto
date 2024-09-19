@@ -26,7 +26,7 @@ class ManterUsuarioUI:
             df = pd.DataFrame(dict)
             st.dataframe(df)
     
-    def InserirUser():
+    def InserirUser(): 
         nome = st.text_input("Insira o seu nome: ")
         email = st.text_input("Insira o seu endereço de e-mail")
         fone = st.text_input("Insira o seu número de telefone: ")

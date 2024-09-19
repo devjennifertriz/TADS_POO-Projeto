@@ -6,6 +6,7 @@ class Categoria:
         self.__id = id
         self.__nome = nome
         self.__desc = desc
+        
     def set_id(self, id):
         if id < 0: raise ValueError()
     def set_nome(self, nome):

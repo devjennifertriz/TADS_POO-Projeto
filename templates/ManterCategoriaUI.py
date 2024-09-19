@@ -17,55 +17,51 @@ class ManterCategoriaUI:
             ManterCategoriaUI.ExcluirCategoria()
 
     def ListarCategoria():
-        user = View.Usuario_Listar()
-        if len(user) == 0:
-            st.write("Nenhum usuário encontrado.")
+        cat = View.Categoria_Listar()
+        if len(cat) == 0:
+            st.write("Nenhuma categoria encontrada.")
         else:
             dict = []
-            for obj in user: dict.append(obj.__dict__)
+            for obj in cat: dict.append(obj.__dict__)
             df = pd.DataFrame(dict)
             st.dataframe(df)
     
     def InserirCategoria():
-        nome = st.text_input("Insira o seu nome: ")
-        email = st.text_input("Insira o seu endereço de e-mail")
-        fone = st.text_input("Insira o seu número de telefone: ")
-        senha = st.text_input("Insira uma senha: ")
+        nome = st.text_input("Insira o nome da categoria: ")
+        desc = st.text_input("Descreva a categoria: ")
         if st.button("Inserir"):
             try:
-                View.Usuario_Inserir(nome, email, fone, senha)
-                st.success("Usuário cadastrado com sucesso!")
+                View.Categoria_Inserir(nome, desc)
+                st.success("Categoria cadastrada com sucesso!")
                 time.sleep(1)
                 st.rerun()
             except ValueError:
                 st.write("Dados inválidos.")
     
     def AtualizarCategoria():
-        user = View.Usuario_Listar()
-        if len(user) == 0:
-            st.write("Nenhum usuário encontrado.")
+        cat = View.Categoria_Listar()
+        if len(cat) == 0:
+            st.write("Nenhuma categoria encontrada.")
         else: 
-            select = st.selectbox("Atualizar Cadastro", user)
-            nome = st.text_input("Insira o seu novo nome: ", select.get_nome())
-            email = st.text_input("Insira o seu novo endereço de e-mail: ", select.get_email())
-            fone = st.text_input("Insira o seu novo número de telefone: ", select.get_fone())
-            senha = st.text_input("Insira a sua nova senha: ")
+            select = st.selectbox("Atualizar Cadastro", cat)
+            nome = st.text_input("Insira a nova categoria: ", select.get_nome())
+            desc = st.text_input("Insira uma nova descrição para a categoria: ", select.get_desc())
             if st.button("Atualizar"):
                 id = select.get_id()
-                View.Usuario_Atualizar(id, nome, email, fone, senha)
-                st.success("Cadastro de usuário atualizado com sucesso!")
+                View.Categoria_Atualizar(id, nome, desc)
+                st.success("Categoria atualizada com sucesso!")
                 time.sleep(1)
                 st.rerun()
     
     def ExcluirCategoria():
-        user = View.Usuario_Listar()
-        if len(user) == 0:
-            st.write("Nenhum usuário encontrado.")
+        cat = View.Categoria_Listar()
+        if len(cat) == 0:
+            st.write("Nenhuma categoria encontrada.")
         else:
-            select = st.selectbox("Excluir Cadastro", user)
+            select = st.selectbox("Excluir Cadastro", cat)
             if st.button("Excluir"):
                 id = select.get_id()
-                View.Usuario_Excluir(id)
-                st.success("Usuário excluído com sucesso!")
+                View.Categoria_Excluir(id)
+                st.success("Categoria excluída com sucesso!")
                 time.sleep(1)
                 st.rerun()

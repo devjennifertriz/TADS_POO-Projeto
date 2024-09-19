@@ -29,7 +29,7 @@ class Item:
     def get_idProduto(self):
         return self.__idProduto
     def __str__(self):
-        return f'Id - {self.__id} Quantidade - {self.__qtd} Valor - {self.__valor} Id Encomenda - {self.__idEncomenda} Id produto {self.__idProduto}'
+        return f'ID: {self.__id} | Quantidade: {self.__qtd} | Valor: {self.__valor} | IdEncomenda: {self.__idEncomenda} | IdProduto {self.__idProduto}'
     
 
 class Itens(Modelo):

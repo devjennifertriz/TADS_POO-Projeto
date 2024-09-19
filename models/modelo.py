@@ -18,9 +18,8 @@ class Modelo(ABC):
         cls.Abrir()
         id = 0
         for x in cls.objetos:
-            if x.id > id: id = x.id
-            id += 1
-        obj.id = id 
+            if x.get_id() > id: id = x.get_id()
+        obj.set_id(id + 1)
         cls.objetos.append(obj)
         cls.Salvar()
 

@@ -7,8 +7,10 @@ class Produto:
         self.__nome = nome
         self.__valor = valor
         self.__idCategoria = idCategoria
+
     def __str__(self):
-        return f'ID - {self.__id} Nome - {self.__nome} Valor - {self.__valor} Categoria - {self.__idCategoria}'
+        return f'ID: {self.__id} | Nome: {self.__nome} | Valor: {self.__valor} | Categoria: {self.__idCategoria}'
+    
     def set_id(self, id):
         if id < 0: raise ValueError()
     def set_nome(self, nome):
@@ -23,6 +25,11 @@ class Produto:
         return self.__valor
     def get_categoria(self):
         return self.__idCategoria
+
+    def __eq__(self, x):
+        if self.__id == x.__id and self.__nome == x.__nome and self.__valor == x.__valor and self.__idCategoria == x.__idCategoria:
+            return True
+        return False
     
 class Produtos(Modelo):
 
@@ -38,7 +45,7 @@ class Produtos(Modelo):
           with open("../produtos.json", mode="r") as arquivo:
               arquivo_produtos = json.load(arquivo)
               for obj in arquivo_produtos:
-                  p = Produto(obj["id"], obj["nome"], obj["valor"], obj["idCategoria"])
+                  p = Produto(obj["id"], obj["_Produto__nome"], obj["_Produto__valor"], obj["_Produto__idCategoria"])
                   cls.objetos.append(p)
         except FileNotFoundError:
           pass             
