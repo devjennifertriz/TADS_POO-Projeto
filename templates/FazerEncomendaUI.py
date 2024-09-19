@@ -3,14 +3,13 @@ from view import View
 
 class FazerEncomendaUI:
     def Main(): 
-        st.subheader("Faça sua encomenda")
+        st.subheader("Adicionar Encomenda")
         FazerEncomendaUI.FazerPedido()
 
     def FazerPedido():
         
         #atributos encomenda
 
-        st.subheader("Adicionar Encomenda")
         #id = st.number_input("Id da encomenda", min_value=0)
         endereco = st.text_input("Endereço de Entrega")
         status = "Pendente"
