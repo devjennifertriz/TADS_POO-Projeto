@@ -1,5 +1,5 @@
 from models.Usuario import Usuario, Usuarios
-from models.pedido import Pedido, Pedidos
+from models.encomenda import Encomenda, Encomendas
 from models.produto import Produto, Produtos
 from models.categoria import Categoria, Categorias
 
@@ -27,20 +27,20 @@ class View:
     def Usuario_Login(email, senha):
         return True
     @staticmethod
-    def Pedido_Inserir(enderecoEntrega, status, valorTotal, qtdProduto, idProduto, idUsuario):
-        Inserindo = Pedido(0, enderecoEntrega, status, valorTotal, qtdProduto, idProduto, idUsuario)
-        Pedidos.Inserir(Inserindo)
+    def Encomenda_Inserir(enderecoEntrega, status, valorTotal, qtdProduto, idProduto, idUsuario):
+        Inserindo = Encomenda(0, enderecoEntrega, status, valorTotal, qtdProduto, idProduto, idUsuario)
+        Encomendas.Inserir(Inserindo)
     @staticmethod
     def Pedido_Listar():
-        return Pedidos.Listar()
+        return Encomendas.Listar()
     @staticmethod
     def Pedido_Atualizar(id, enderecoEntrega, status, valorTotal, qtdProduto, idProduto, idUsuario):
-        Atualizando = Pedido(id, enderecoEntrega, status, valorTotal, qtdProduto, idProduto, idUsuario)
-        Pedidos.Atualizar(Atualizando)
+        Atualizando = Encomenda(id, enderecoEntrega, status, valorTotal, qtdProduto, idProduto, idUsuario)
+        Encomendas.Atualizar(Atualizando)
     @staticmethod
     def Pedido_Excluir(id):
-        Excluindo = Pedido(id, "", "", "", "", "", "")
-        Pedidos.Excluir(Excluindo)
+        Excluindo = Encomenda(id, "", "", "", "", "", "")
+        Encomendas.Excluir(Excluindo)
     @staticmethod
     def Produto_Inserir(nome, valor, categoria):
         Inserindo = Produto(0, nome, valor, categoria)
