@@ -32,7 +32,7 @@ class ManterProdutoUI:
         idCategoria = st.text_input("Insira a categoria: ")
         if st.button("Inserir"):
             try:
-                View.Produto_Inserir(nome, valor, idCategoria)
+                View.Produto_Inserir(0, nome, valor, idCategoria)
                 st.success("Produto cadastrado com sucesso!")
                 time.sleep(1)
                 st.rerun()
