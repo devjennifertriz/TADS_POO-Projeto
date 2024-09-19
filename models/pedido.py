@@ -30,6 +30,7 @@ class Pedido:
         return self.__valorTotal
     def get_idUsuario(self):
         return self.__idUsuario
+
 class Pedidos(Modelo):
 
     @staticmethod
