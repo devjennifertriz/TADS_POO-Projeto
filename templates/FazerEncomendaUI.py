@@ -10,7 +10,7 @@ class FazerEncomendaUI:
         
         #atributos encomenda
 
-        st.subheaderheader("Adicionar Encomenda")
+        st.subheader("Adicionar Encomenda")
         #id = st.number_input("Id da encomenda", min_value=0)
         endereco = st.text_input("Endereço de Entrega")
         status = "Pendente"
