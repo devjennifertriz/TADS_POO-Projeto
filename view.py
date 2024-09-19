@@ -2,6 +2,7 @@ from models.Usuario import Usuario, Usuarios
 from models.encomenda import Encomenda, Encomendas
 from models.produto import Produto, Produtos
 from models.categoria import Categoria, Categorias
+from models.item import Item, Itens
 
 class View:
     @staticmethod
@@ -86,3 +87,24 @@ class View:
     def Categoria_Excluir(id):
         Excluindo = Categoria(id, "", "")
         Categoria.Excluir(Excluindo)
+    @staticmethod
+    def Item_Inserir(qtd, valor, id_encomenda, id_produto): 
+        Inserindo = Item(0, qtd, valor, id_encomenda, id_produto)
+        Itens.Inserir(Inserindo)
+    @staticmethod
+    def Item_Listar():
+        return Itens.Listar()
+    @staticmethod
+    def Item_ListaId(id):
+        return Itens.Listar_id(id)
+    @staticmethod
+    def Item_ListarId(id):
+        return Itens.Listar_id(id)
+    @staticmethod
+    def Item_Atualizar(id, qtd, valor, id_encomenda, id_produto):
+        Atualizando = Produto(id, qtd, valor, id_encomenda, id_produto)
+        Itens.Atualizar(Atualizando)
+    @staticmethod
+    def Item_Excluir(id):
+        Excluindo = Item(id, "", "", "", "")
+        Item.Excluir(Excluindo)
