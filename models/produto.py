@@ -26,6 +26,7 @@ class Produto:
         return self.__valor
     def get_categoria(self):
         return self.__idCategoria
+    
 
     def __eq__(self, x):
         if self.__id == x.__id and self.__nome == x.__nome and self.__valor == x.__valor and self.__idCategoria == x.__idCategoria:
