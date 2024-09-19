@@ -6,6 +6,18 @@ class Categoria:
         self.__id = id
         self.__nome = nome
         self.__descricao = descricao
+    def set_id(self, id):
+        if id < 0: raise ValueError()
+    def set_nome(self, nome):
+        if nome == "": raise ValueError()
+    def set_descricao(self, descricao):
+        if descricao == "": raise ValueError()
+    def get_id(self):
+        return self.__id
+    def get_nome(self):
+        return self.__nome
+    def get_descricao(self):
+        return self.__descricao
     def __str__(self):
         return f'ID - {self.__id} Nome - {self.__nome} Descrição - {self.__descricao}'
     
