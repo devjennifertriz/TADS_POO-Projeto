@@ -12,14 +12,14 @@ class FazerEncomendaUI:
 
         #id = st.number_input("Id da encomenda", min_value=0)
         st.text("Nossos produtos:")
+        itens = View.Item_Listar()
 
-        usuario = View.Item_Listar()
-        user = st.selectbox("", usuario)
+        item = st.selectbox("", itens)
         endereco = st.text_input("Endereço de Entrega")
         status = "Pendente"
         valorT = st.number_input("Valor total", min_value=0.0)
         #idusuario = st.number_input("Id do usuário", min_value=0)
-        idusuario = user
+        idusuario = 0
 
         #item = View.Item_Listar()
         #op = st.selectbox("", item)
@@ -28,7 +28,7 @@ class FazerEncomendaUI:
         quantidade = st.text_input("Quantidade")
         valor = st.number_input("Valor do produto")
         idencomenda = 0
-        idproduto = st.number_input("Produto", min_value=0)
+        idproduto = st.multiselect(item)
         
         if st.button("Pedir"):
             status = "Pedido feito"
