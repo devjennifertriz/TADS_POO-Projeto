@@ -29,10 +29,9 @@ class ManterProdutoUI:
     def InserirProduto():
         nome = st.text_input("Insira o nome do produto: ")
         valor = st.number_input("Insira o valor do produto: ")
-        idCategoria = st.text_input("Insira a categoria: ")
         if st.button("Inserir"):
             try:
-                View.Produto_Inserir(0, nome, valor, idCategoria)
+                View.Produto_Inserir(nome, valor)
                 st.success("Produto cadastrado com sucesso!")
                 time.sleep(1)
                 st.rerun()
@@ -50,7 +49,7 @@ class ManterProdutoUI:
             idCategoria = st.text_input("Insira a categoria: ")
             if st.button("Atualizar"):
                 id = select.get_id()
-                View.Produto_Atualizar(id, nome, valor, idCategoria)
+                View.Produto_Atualizar(id, nome, valor)
                 st.success("Produto atualizado com sucesso!")
                 time.sleep(1)
                 st.rerun()
